@@ -17,7 +17,13 @@ public class Apuesta extends javax.swing.JFrame {
         initComponents();
         this.setResizable(Boolean.FALSE);
     }
-
+     /**
+     * Crea y organiza todos los elementos de la ventana.
+     * <p>
+     * Este método coloca los botones, listas y etiquetas
+     * que se muestran en pantalla.
+     * </p>
+     */
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -120,7 +126,15 @@ public class Apuesta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+     /**
+     * Acción del botón "Nuevo".
+     * <p>
+     * Abre una ventana pequeña donde se puede
+     * escribir un nuevo partido.
+     * </p>
+     *
+     * @param evt acción realizada al pulsar el botón
+     */
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
         CrearPartido agregarpartido = new CrearPartido(this);
         agregarpartido.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -129,23 +143,54 @@ public class Apuesta extends javax.swing.JFrame {
         agregarpartido.setTitle("Agregar nuevo partido");
         agregarpartido.setVisible(Boolean.TRUE);
     }//GEN-LAST:event_bNuevoActionPerformed
-
+   
+    /**
+     * Acción del botón "Eliminar".
+     * <p>
+     * Borra el partido que esté seleccionado
+     * en la lista.
+     * </p>
+     *
+     * @param evt acción realizada al pulsar el botón
+     */
     private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
         borraPartido(listaQuiniela.getSelectedIndex());
     }//GEN-LAST:event_bEliminarActionPerformed
-
+     
+    /**
+     * Acción del botón "Resetear".
+     * <p>
+     * Resetea la lista de partidos.
+     * </p>
+     *
+     * @param evt acción realizada al pulsar el botón
+     */
     private void bResetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bResetearActionPerformed
         DefaultListModel modelovacio = new DefaultListModel();
         this.listaQuiniela.setModel(modelovacio);
         this.listaResultados.setModel(modelovacio);
     }//GEN-LAST:event_bResetearActionPerformed
-
-   
+    
+   /**
+    * <p>
+    * Elige equipos al azar
+    * </p>
+    * @param n1
+    * @param n2
+    * @return 
+    */
     public int cualquiera(int n1, int n2)
     {
         return (int)Math.floor((Math.random()*(n2-n1+1) + n1));
     }
-    
+     /**
+     * Acción del botón "Resultado".
+     * <p>
+     * da el resultado de la quiniela.
+     * </p>
+     *
+     * @param evt acción realizada al pulsar el botón
+     */
     private void bRealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizarActionPerformed
         DefaultListModel modeloquinielaresuelta = new DefaultListModel();
 
@@ -172,7 +217,12 @@ public class Apuesta extends javax.swing.JFrame {
         this.listaResultados.setModel(modeloquinielaresuelta);
     }//GEN-LAST:event_bRealizarActionPerformed
 
-    
+    /**
+     * <p>
+     * crea un nuevo partido
+     * </p>
+     * @param partido 
+     */
     public void partidoNuevo(String partido)
     {
         DefaultListModel modelonuevo = new DefaultListModel();
@@ -186,7 +236,12 @@ public class Apuesta extends javax.swing.JFrame {
         this.listaQuiniela.setModel(modelonuevo);
     }
     
-  
+    /**
+     * <p>
+     * Borra el partido.
+     * </p>
+     * @param indice 
+     */
     public void borraPartido(int indice)
     {
         DefaultListModel modelonuevoquiniela = new DefaultListModel();
@@ -212,7 +267,10 @@ public class Apuesta extends javax.swing.JFrame {
         this.listaResultados.setModel(modelonuevoresultados);
     }
     
-   
+    /**
+     * 
+     * @param args 
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
